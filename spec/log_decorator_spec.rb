@@ -25,7 +25,7 @@ describe LogDecorator do
 
   describe "include in class" do
     before(:each) do
-      TestClass1._prefix = LogDecorator::DEFAULT_PREFIX
+      TestClass1._log_prefix = LogDecorator::DEFAULT_PREFIX
       TestLog.sio.rewind
     end
 
@@ -52,7 +52,7 @@ describe LogDecorator do
 
   describe "change prefix" do
     before(:each) do
-      TestClass1._prefix = lambda do |klass, separator, location|
+      TestClass1._log_prefix = lambda do |klass, separator, location|
         "MIQ(#{LogDecorator::DEFAULT_PREFIX.call(klass, separator, location)})"
       end
       TestLog.sio.rewind
@@ -73,7 +73,7 @@ describe LogDecorator do
 
   describe "change loglevel" do
     before(:each) do
-      TestClass1._prefix = LogDecorator::DEFAULT_PREFIX
+      TestClass1._log_prefix = LogDecorator::DEFAULT_PREFIX
       TestClass1._log.level = Log4r::DEBUG
       TestLog.sio.reopen("")
     end
