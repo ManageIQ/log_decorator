@@ -11,7 +11,7 @@ module LogDecorator
 
       def _logger=(logger)
         _log.logger = logger
-        instance_logger.prefix = logger
+        instance_logger.logger = logger
       end
 
       def _log_prefix=(prefix)
