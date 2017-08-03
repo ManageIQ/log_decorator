@@ -24,7 +24,8 @@ Or install it yourself as:
 
 ## Usage
 
-### Initilization
+### Initialization
+
 ```ruby
 logger = Logger.new # Instantiate an instance of the logger of your choice
 logger.level = desired_log_level # Set up the logger as needed
@@ -32,6 +33,7 @@ LogDecorator.logger = logger # Tell LogDecorator to use the logger
 ```
 
 ### Use
+
 Given:
 
 ```ruby
@@ -54,7 +56,7 @@ Then:
 MyClass.method_1
 ```
 
-Loggs:
+Logs:
 
 ```
 MyClass.method_1 Called
@@ -66,7 +68,7 @@ and
 MyClass.new.method_2
 ```
 
-Loggs:
+Logs:
 
 ```
 MyClass#method_2 Called
