@@ -11,26 +11,12 @@ RSpec.configure do |config|
   config.example_status_persistence_file_path = ".rspec_status"
 end
 
-require "log4r"
-
 module TestLog
-  class ConsoleFormatter < Log4r::Formatter
-    def format(event)
-      (event.data.is_a?(String) ? event.data : event.data.inspect) + "\n"
-    end
-  end
-
-  def self.log_init(log_level = 'DEBUG')
-    log = Log4r::Logger.new 'toplog'
-    log.level = case log_level
-                when 'ERROR' then Log4r::ERROR
-                when 'WARN'  then Log4r::WARN
-                when 'INFO'  then Log4r::INFO
-                when 'DEBUG' then Log4r::DEBUG
-                else              Log4r::OFF
-                end
-    Log4r::IOOutputter.new('err_console', sio, :formatter => ConsoleFormatter)
-    log.add 'err_console'
+  def self.log_init
+    require 'logger'
+    log = Logger.new(sio)
+    log.level = Logger::DEBUG
+    log.formatter = lambda { |_severity, _datetime, _progname, msg| "#{msg}\n" }
     LogDecorator.logger = log
   end
 
@@ -43,6 +29,7 @@ TestLog.log_init
 
 class TestClass1
   include LogDecorator::Logging
+
   def self.cmethod
     _log.debug "called"
   end

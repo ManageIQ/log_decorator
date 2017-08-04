@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe LogDecorator do
   it 'has a version number' do
     expect(LogDecorator::VERSION).not_to be nil
@@ -24,7 +22,7 @@ describe LogDecorator do
   end
 
   describe "include in class" do
-    before(:each) do
+    before do
       TestClass1._log_prefix = LogDecorator::DEFAULT_PREFIX
       TestLog.sio.rewind
     end
@@ -51,7 +49,7 @@ describe LogDecorator do
   end
 
   describe "change prefix" do
-    before(:each) do
+    before do
       TestClass1._log_prefix = lambda do |klass, separator, location|
         "MIQ(#{LogDecorator::DEFAULT_PREFIX.call(klass, separator, location)})"
       end
@@ -72,9 +70,9 @@ describe LogDecorator do
   end
 
   describe "change loglevel" do
-    before(:each) do
+    before do
       TestClass1._log_prefix = LogDecorator::DEFAULT_PREFIX
-      TestClass1._log.level = Log4r::DEBUG
+      TestClass1._log.level = Logger::DEBUG
       TestLog.sio.reopen("")
     end
 
@@ -86,7 +84,7 @@ describe LogDecorator do
     end
 
     it "should NOT log expected message from class method at INFO" do
-      TestClass1._log.level = Log4r::INFO
+      TestClass1._log.level = Logger::INFO
       expect(TestClass1._log.info?).to be true
       TestClass1.cmethod
       TestLog.sio.rewind
@@ -101,7 +99,7 @@ describe LogDecorator do
 
     it "should NOT log expected message from instance method at INFO" do
       obj = TestClass1.new
-      obj._log.level = Log4r::INFO
+      obj._log.level = Logger::INFO
       expect(obj._log.info?).to be true
       obj.imethod
       TestLog.sio.rewind
