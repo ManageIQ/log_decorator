@@ -21,9 +21,7 @@ module LogDecorator
     end
 
     def self.included(host_class)
-      host_class.extend(ClassMethods) unless host_class.respond_to?(:_log)
-      host_class.instance_logger
-      host_class._log
+      host_class.extend(ClassMethods)
     end
 
     def _log
