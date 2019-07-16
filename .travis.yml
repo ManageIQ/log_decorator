@@ -4,5 +4,4 @@ cache: bundler
 rvm:
   - 2.3.1
   - 2.4.2
-before_install: gem install bundler -v 1.14.6
 after_script: bundle exec codeclimate-test-reporter
