@@ -11,9 +11,11 @@ RSpec.configure do |config|
   config.example_status_persistence_file_path = ".rspec_status"
 end
 
+require "stringio"
+require "logger"
+
 module TestLog
   def self.log_init
-    require 'logger'
     log = Logger.new(sio)
     log.level = Logger::DEBUG
     log.formatter = lambda { |_severity, _datetime, _progname, msg| "#{msg}\n" }
