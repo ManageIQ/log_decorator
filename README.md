@@ -4,7 +4,6 @@
 [![Build Status](https://travis-ci.org/ManageIQ/log_decorator.svg)](https://travis-ci.org/ManageIQ/log_decorator)
 [![Code Climate](https://codeclimate.com/github/ManageIQ/log_decorator.svg)](https://codeclimate.com/github/ManageIQ/log_decorator)
 [![Test Coverage](https://codeclimate.com/github/ManageIQ/log_decorator/badges/coverage.svg)](https://codeclimate.com/github/ManageIQ/log_decorator/coverage)
-[![Dependency Status](https://gemnasium.com/ManageIQ/log_decorator.svg)](https://gemnasium.com/ManageIQ/log_decorator)
 [![Security](https://hakiri.io/github/ManageIQ/log_decorator/master.svg)](https://hakiri.io/github/ManageIQ/log_decorator/master)
 
 Acts as a proxy to a configurable underlying logging mechanism,
