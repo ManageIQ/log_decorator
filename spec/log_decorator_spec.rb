@@ -76,6 +76,10 @@ describe LogDecorator do
       TestLog.sio.reopen("")
     end
 
+    after do
+      TestClass1._log.level = Logger::DEBUG
+    end
+
     it "should log expected message from class method at DEBUG" do
       expect(TestClass1._log.debug?).to be true
       TestClass1.cmethod
