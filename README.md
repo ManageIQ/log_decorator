@@ -2,8 +2,6 @@
 
 [![Gem Version](https://badge.fury.io/rb/log_decorator.svg)](http://badge.fury.io/rb/log_decorator)
 [![CI](https://github.com/ManageIQ/log_decorator/actions/workflows/ci.yaml/badge.svg)](https://github.com/ManageIQ/log_decorator/actions/workflows/ci.yaml)
-[![Code Climate](https://codeclimate.com/github/ManageIQ/log_decorator.svg)](https://codeclimate.com/github/ManageIQ/log_decorator)
-[![Test Coverage](https://codeclimate.com/github/ManageIQ/log_decorator/badges/coverage.svg)](https://codeclimate.com/github/ManageIQ/log_decorator/coverage)
 
 Acts as a proxy to a configurable underlying logging mechanism,
 permitting the code to be executed in absence of the logger.
